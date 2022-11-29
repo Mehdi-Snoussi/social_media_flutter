@@ -39,28 +39,28 @@ class ItemList extends StatelessWidget {
                      Text(post.name!),
                   ],
                 ),
-               
-                
-
-                Column(
-                  children: [
-                    Text(post.title ?? "Post 0",
+                Flexible(
+                  flex: 5,
+                  child: Column(
+                    children: [
+                      Text(post.title ?? "Post 0",
+                          style: const TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontFamily: "island",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20)),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        post.description ?? "#post#",
                         style: const TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontFamily: "Montserrat",
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20)),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      post.description ?? "#post#",
-                      style: const TextStyle(
-                          fontFamily: "Montserrat",
-                          fontWeight: FontWeight.w300,
-                          fontSize: 16),
-                    ),
-                  ],
+                            fontFamily: "island",
+                            fontWeight: FontWeight.w300,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
                 ),
                 IconButton(
                     onPressed:  onPressed,

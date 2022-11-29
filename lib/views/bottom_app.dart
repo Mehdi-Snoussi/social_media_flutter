@@ -1,4 +1,5 @@
 import 'package:first_app/views/home_screen.dart';
+import 'package:first_app/views/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _BottomScreenState extends State<BottomScreen> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    const Text('index 1: Profile')
+    const ProfileScreen()
   ];
 
   void _onItemTapped(int index) {
