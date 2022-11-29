@@ -17,7 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("data"),
+        title: const Text("Profile"),
       ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -63,13 +63,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   crossAxisCount: 3,
                                   mainAxisSpacing: 10,
                                   crossAxisSpacing: 10,
-                                  mainAxisExtent: 170),
+                                  mainAxisExtent: 150),
                           itemBuilder: (context, index) {
-                            return Image.network(
-                              value.list[index].image!,
-                              width: 100,
-                              height: 100,
-                              fit: BoxFit.cover,
+                            return Stack(
+                              children: [
+                                Positioned(
+                                  left: 0,
+                                  right: 0,
+                                  top: 0,
+                                  bottom: 0,
+                                  child: Image.network(
+                                    value.list[index].image!,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  right: 0,
+                                  child: IconButton(
+                                      onPressed: () {
+                                        Provider.of<ListProvider>(context, listen: false).onPressLike(index);
+                                      },
+                                      icon: Icon(
+                                          color : Colors.red,
+                                          value.list[index].isLiked!
+                                          ? Icons.favorite
+                                          : Icons.favorite_border_outlined)),
+                                )
+                              ],
                             );
                           });
                 },
